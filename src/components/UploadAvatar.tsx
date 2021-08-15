@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { RcFile } from 'antd/lib/upload';
+// import { RcFile } from 'antd/lib/upload';
 
 const Avatar = () => {
 	const [Loading, setLoading] = useState<boolean>();
