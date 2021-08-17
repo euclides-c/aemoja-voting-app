@@ -1,10 +1,12 @@
-import React from 'react';
 import { Image, Descriptions } from 'antd';
 
 const CandidateCard = () => {
 	return (
 		<div>
-			<Image src={'~/Users/euclides-c/Downloads/images.jpg'} />
+			<Image
+				width={200}
+				src='/Users/euclides-c/Documents/GitHub/***REMOVED***-votes/src/components/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+			/>
 			<Descriptions title='User Info' bordered={true} column={1}>
 				<Descriptions.Item label='Name'>Eugenio Cossa</Descriptions.Item>
 				<Descriptions.Item label='Universidade'>
