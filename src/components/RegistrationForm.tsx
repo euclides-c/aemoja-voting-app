@@ -25,30 +25,35 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
+// to do
+//  Define an interface type for the data to be received, any remove any annotation
+// Use arrow functions
+// Define required states
+// Make handlers work and print to the console
+
+interface Voter {
+	name: string;
+	email: string;
+	universidade: string;
+	bolsa?: string;
+	chegada: number;
+	isCandidate: boolean;
+	foto?: string;
+	bio: string;
+}
 const RegistrationForm = () => {
+	const { Option } = Select;
 	const [isCandidate, setIsCandidate] = useState<boolean>(false);
 
-	const onFinish = (values: any) => {
-		console.log(values);
+	const onFinish = (values: Voter) => {
+		console.log(values.name);
+		console.log(values.universidade);
+		console.log(values.chegada);
 	};
 
-	const { Option } = Select;
-
-	function onChange(value: any) {
+	const onChange = (value: any) => {
 		console.log(`selected ${value}`);
-	}
-
-	function onBlur() {
-		console.log('blur');
-	}
-
-	function onFocus() {
-		console.log('focus');
-	}
-
-	function onSearch(val: any) {
-		console.log('search:', val);
-	}
+	};
 
 	// function onChange(checked) {
 	//     console.log(`switch to ${checked}`);
@@ -64,21 +69,22 @@ const RegistrationForm = () => {
 	return (
 		<Form
 			{...layout}
-			name='nest-messages'
+			name='Voter-registration'
 			onFinish={onFinish}
 			validateMessages={validateMessages}>
 			<Form.Item
-				name={['user', 'name']}
+				name='name'
 				label='Name'
 				rules={[
 					{
 						required: true,
+						type: 'string',
 					},
 				]}>
 				<Input />
 			</Form.Item>
 			<Form.Item
-				name={['user', 'email']}
+				name='email'
 				label='Email'
 				rules={[
 					{
@@ -89,7 +95,7 @@ const RegistrationForm = () => {
 				<Input />
 			</Form.Item>
 			<Form.Item
-				name={['user', 'Universidade']}
+				name='universidade'
 				label='Universidade'
 				rules={[
 					{
@@ -100,12 +106,12 @@ const RegistrationForm = () => {
 				<Input />
 			</Form.Item>
 			<Form.Item
-				name={['user', 'Bolsa']}
+				name='bolsa'
 				label='Bolsa'
 				rules={[
 					{
 						type: 'string',
-						required: true,
+						required: false,
 					},
 				]}>
 				<Select
@@ -114,9 +120,6 @@ const RegistrationForm = () => {
 					placeholder='Selecione O Provedor da Bolsa'
 					optionFilterProp='children'
 					onChange={onChange}
-					onFocus={onFocus}
-					onBlur={onBlur}
-					onSearch={onSearch}
 					filterOption={(input, option: any) =>
 						option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
 					}>
@@ -126,18 +129,18 @@ const RegistrationForm = () => {
 					<Option value='OUTRA'>OUTRA</Option>
 				</Select>
 			</Form.Item>
-			<Form.Item name={['user', 'Chegada']} label='Ano De Chegada Ao Japão'>
+			<Form.Item name='chegada' label='Ano De Chegada Ao Japão'>
 				<Space>
 					<DatePicker onChange={onChange} picker='year' />
 				</Space>
 			</Form.Item>
 			<Form.Item
-				name={['user', 'Candidato']}
+				name='Candidato'
 				label='É Candidato'
 				rules={[
 					{
 						type: 'boolean',
-						required: true,
+						required: false,
 					},
 				]}>
 				<Switch onChange={handleCanditate} />
@@ -145,10 +148,10 @@ const RegistrationForm = () => {
 
 			{isCandidate === true ? (
 				<>
-					<Form.Item name={['user', 'website']} label='Carregar Foto'>
+					<Form.Item name='foto' label='Carregar Foto'>
 						<Avatar />
 					</Form.Item>
-					<Form.Item name={['user', 'Bio']} label='Bio'>
+					<Form.Item name='Bio' label='Bio'>
 						<Input.TextArea />
 					</Form.Item>
 				</>
