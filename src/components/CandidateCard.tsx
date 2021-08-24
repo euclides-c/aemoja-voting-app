@@ -1,7 +1,12 @@
 import React from 'react';
 import { Image, Descriptions } from 'antd';
 
-const CandidateCard = () => {
+interface Props {
+	name: string;
+	// universidade: string;
+}
+
+const CandidateCard: React.FC<Props> = ({ name }) => {
 	return (
 		<div>
 			<Image
@@ -9,7 +14,7 @@ const CandidateCard = () => {
 				src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
 			/>
 			<Descriptions bordered={true} column={1}>
-				<Descriptions.Item label='Name'>Eugenio Cossa</Descriptions.Item>
+				<Descriptions.Item label='Name'>{name}</Descriptions.Item>
 			</Descriptions>
 		</div>
 	);
