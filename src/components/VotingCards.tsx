@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
-import { Radio } from 'antd';
+import React from 'react';
+import { Radio, RadioChangeEvent } from 'antd';
 import CandidateCard from './CandidateCard';
-import VoteSubmissionButton from './VoteSubmissionButton';
 
-const VotingCards = () => {
-	const [value, setValue] = useState(1);
+interface Props {
+	chosenCandidate: string;
+	setChosenCandidate: (t: string) => void;
+}
 
-	const onChange = (e: any) => {
+const VotingCards: React.FC<Props> = ({
+	chosenCandidate,
+	setChosenCandidate,
+}) => {
+	const onChange = (e: RadioChangeEvent) => {
 		console.log('radio checked', e.target.value);
-		setValue(e.target.value);
+
+		setChosenCandidate(e.target.value);
 	};
 
 	return (
 		<>
-			<Radio.Group onChange={onChange} value={value}>
+			<Radio.Group onChange={onChange} value={chosenCandidate}>
 				<Radio value={'Delio'}>
 					<CandidateCard />
 				</Radio>
@@ -24,7 +30,6 @@ const VotingCards = () => {
 					<CandidateCard />
 				</Radio>
 			</Radio.Group>
-			<VoteSubmissionButton />
 		</>
 	);
 };

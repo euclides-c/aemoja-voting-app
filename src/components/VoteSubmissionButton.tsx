@@ -1,8 +1,13 @@
 import { Form, Input, Button } from 'antd';
 
-const VoteSubmissionButoon = () => {
-	const onFinish = (values: any) => {
+interface Props {
+	setVotingToken: (t: string) => void;
+}
+
+const VoteSubmissionButton: React.FC<Props> = ({ setVotingToken }) => {
+	const onFinish = (values: string) => {
 		console.log('Success:', values);
+		setVotingToken(values);
 	};
 
 	const onFinishFailed = (errorInfo: any) => {
@@ -25,7 +30,7 @@ const VoteSubmissionButoon = () => {
 			onFinishFailed={onFinishFailed}>
 			<Form.Item
 				label='Vote Token'
-				name='username'
+				name='token'
 				rules={[
 					{
 						required: true,
@@ -48,4 +53,4 @@ const VoteSubmissionButoon = () => {
 	);
 };
 
-export default VoteSubmissionButoon;
+export default VoteSubmissionButton;

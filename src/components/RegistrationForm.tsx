@@ -27,9 +27,11 @@ const validateMessages = {
 
 // to do
 //  Define an interface type for the data to be received, any remove any annotation
-// Use arrow functions
 // Define required states
 // Make handlers work and print to the console
+
+// Issue
+// Chegada not bein populated
 
 interface Voter {
 	name: string;
@@ -37,7 +39,7 @@ interface Voter {
 	universidade: string;
 	bolsa?: string;
 	chegada: number;
-	isCandidate: boolean;
+	candidato: boolean;
 	foto?: string;
 	bio: string;
 }
@@ -47,13 +49,18 @@ const RegistrationForm = () => {
 
 	const onFinish = (values: Voter) => {
 		console.log(values.name);
+		console.log(values.email);
 		console.log(values.universidade);
+		console.log(values.bolsa);
 		console.log(values.chegada);
+		console.log(values.candidato);
+		console.log(values.foto);
+		console.log(values.bio);
 	};
 
-	const onChange = (value: any) => {
-		console.log(`selected ${value}`);
-	};
+	// const onChange = (value: any) => {
+	// 	console.log(`selected ${value}`);
+	// };
 
 	// function onChange(checked) {
 	//     console.log(`switch to ${checked}`);
@@ -119,7 +126,7 @@ const RegistrationForm = () => {
 					style={{ width: 200 }}
 					placeholder='Selecione O Provedor da Bolsa'
 					optionFilterProp='children'
-					onChange={onChange}
+					// onChange={onChange}
 					filterOption={(input, option: any) =>
 						option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
 					}>
@@ -131,11 +138,11 @@ const RegistrationForm = () => {
 			</Form.Item>
 			<Form.Item name='chegada' label='Ano De Chegada Ao Japão'>
 				<Space>
-					<DatePicker onChange={onChange} picker='year' />
+					<DatePicker picker='year' />
 				</Space>
 			</Form.Item>
 			<Form.Item
-				name='Candidato'
+				name='candidato'
 				label='É Candidato'
 				rules={[
 					{
