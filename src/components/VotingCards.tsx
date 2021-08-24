@@ -43,7 +43,7 @@ const VotingCards: React.FC<Props> = ({
 					return (
 						<>
 							<Radio value={candidate.name} key={index}>
-								<CandidateCard name={candidate.name} />
+								<CandidateCard key={index} name={candidate.name} />
 							</Radio>
 						</>
 					);
