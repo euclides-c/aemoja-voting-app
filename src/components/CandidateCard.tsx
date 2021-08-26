@@ -10,7 +10,7 @@ const CandidateCard: React.FC<Props> = ({ name }) => {
 	return (
 		<div>
 			<Image
-				width={300}
+				width={128}
 				src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
 			/>
 			<Descriptions bordered={true} column={1}>

@@ -1,18 +1,20 @@
 import { PageHeader, Button, Statistic, Descriptions } from 'antd';
 import { ReactChild } from 'react';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
 const Header = () => {
+	const history = useHistory();
+
 	const renderContent = (column = 2) => (
 		<Descriptions size='small' column={column}>
-			{/* <Descriptions.Item label='Created'>Lili Qu</Descriptions.Item> */}
-			{/* <Descriptions.Item label='Association'> */}
-			<a>421421</a>
-			{/* </Descriptions.Item> */}
-			<Descriptions.Item label='Recenseamento'>2017-01-10</Descriptions.Item>
+			<Descriptions.Item label='Data Da Eleição'>2021-08-31</Descriptions.Item>
+			{/* <Descriptions.Item label='Recenseamento'>
+				Clique Em Recensear
+			</Descriptions.Item>
 			<Descriptions.Item label='Votação'>2017-10-10</Descriptions.Item>
 			<Descriptions.Item label='Resultados'>
 				Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-			</Descriptions.Item>
+			</Descriptions.Item> */}
 		</Descriptions>
 	);
 
@@ -52,12 +54,20 @@ const Header = () => {
 			<PageHeader
 				className='site-page-header-responsive'
 				onBack={() => window.history.back()}
-				title='Title'
-				subTitle='This is a subtitle'
+				title='Plataforma de Eleiçōes da AEMOJA'
 				extra={[
-					<Button key='3'>Recensear</Button>,
-					<Button key='2'>Votar</Button>,
-					<Button key='1' type='primary'>
+					<Button
+						key='Registration'
+						onClick={() => history.push('/Registration')}>
+						Recensear
+					</Button>,
+					<Button key='vote' onClick={() => history.push('/Vote')}>
+						Votar
+					</Button>,
+					<Button
+						key='Results'
+						onClick={() => history.push('/Results')}
+						type='primary'>
 						Resultados
 					</Button>,
 				]}>
