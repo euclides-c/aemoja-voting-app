@@ -1,6 +1,6 @@
 import { PageHeader, Button, Statistic, Descriptions } from 'antd';
 import { ReactChild } from 'react';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Header = () => {
 	const history = useHistory();
