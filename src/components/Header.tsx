@@ -7,14 +7,20 @@ const Header = () => {
 
 	const renderContent = (column = 2) => (
 		<Descriptions size='small' column={column}>
-			<Descriptions.Item label='Data Da Eleição'>2021-08-31</Descriptions.Item>
-			{/* <Descriptions.Item label='Recenseamento'>
-				Clique Em Recensear
+			<Descriptions.Item label='Recenseamento Eleitoral'>
+				7 e 8 de Setembro
 			</Descriptions.Item>
-			<Descriptions.Item label='Votação'>2017-10-10</Descriptions.Item>
-			<Descriptions.Item label='Resultados'>
-				Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-			</Descriptions.Item> */}
+			<Descriptions.Item label='Data Da Eleição'>
+				20 de Setembro
+			</Descriptions.Item>
+
+			<Descriptions.Item label='Divulgação dos Resultados'>
+				21 de Setembro
+			</Descriptions.Item>
+
+			<Descriptions.Item label='Tomada de Posse'>
+				23 de Setembro
+			</Descriptions.Item>
 		</Descriptions>
 	);
 
@@ -25,14 +31,14 @@ const Header = () => {
 				width: 'max-content',
 				justifyContent: 'flex-end',
 			}}>
-			<Statistic
+			{/* <Statistic
 				title='Total de Recenseados'
 				value={56}
 				style={{
 					marginRight: 32,
 				}}
-			/>
-			<Statistic title='Total de Votos' value={568.08} />
+			/> */}
+			{/* <Statistic title='Total de Votos' value={568.08} /> */}
 		</div>
 	);
 
