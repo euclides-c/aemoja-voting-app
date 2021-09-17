@@ -1,4 +1,4 @@
-import { PageHeader, Button, Statistic, Descriptions } from 'antd';
+import { PageHeader, Button, Descriptions } from 'antd';
 import { ReactChild } from 'react';
 import { useHistory } from 'react-router-dom';
 

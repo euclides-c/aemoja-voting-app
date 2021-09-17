@@ -1,23 +1,20 @@
 import React from 'react';
-import { Image, Descriptions } from 'antd';
+import { Image, Card } from 'antd';
 
 interface Props {
 	name: string;
-	// universidade: string;
 }
+
+// The Drower Component to show candidate details should appear hear
 
 const CandidateCard: React.FC<Props> = ({ name }) => {
 	return (
-		<div>
+		<Card title={name} bordered={false}>
 			<Image
-				width={128}
 				// This should be the amazon s3 bucket url
 				src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
 			/>
-			<Descriptions bordered={true} column={1}>
-				<Descriptions.Item label='Name'>{name}</Descriptions.Item>
-			</Descriptions>
-		</div>
+		</Card>
 	);
 };
 
