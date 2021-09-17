@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Radio, RadioChangeEvent } from 'antd';
+import { Radio, RadioChangeEvent, Row, Col } from 'antd';
 import CandidateCard from './CandidateCard';
 
 interface Props {
@@ -36,23 +36,25 @@ const VotingCards: React.FC<Props> = ({
 	};
 
 	return (
-		<Radio.Group onChange={onChange} value={chosenCandidate}>
-			{/* use maps to populate cards, value should be got from props */}
-			{candidateList !== undefined ? (
-				candidateList.map((candidate: candidates, index: number) => {
-					return (
-						<>
-							<Radio value={candidate.name} key={index}>
-								<CandidateCard key={index} name={candidate.name} />
-							</Radio>
-						</>
-					);
-				})
-			) : (
-				<div>No Candidates </div>
-			)}
-			;
-		</Radio.Group>
+		<>
+			<Row gutter={4}>
+				<Col span={8}>
+					{candidateList !== undefined ? (
+						candidateList.map((candidate: candidates, index: number) => {
+							return (
+								<Radio.Group onChange={onChange} value={chosenCandidate}>
+									<Radio value={candidate.name} key={index}>
+										<CandidateCard key={index} name={candidate.name} />
+									</Radio>
+								</Radio.Group>
+							);
+						})
+					) : (
+						<div>No Candidates </div>
+					)}
+				</Col>
+			</Row>
+		</>
 	);
 };
 

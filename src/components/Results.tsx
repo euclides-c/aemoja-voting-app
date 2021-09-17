@@ -14,7 +14,7 @@ const Results = () => {
 	// make a database call and use setResults List to get real results
 	const date = new Date();
 
-	return date.getMonth() >= 8 && date.getDay() >= 21 ? (
+	return date.getMonth() >= 8 && date.getDay() >= 14 ? (
 		<>
 			{isLoading === false ? (
 				results.map((result: results, index: number) => {

@@ -29,12 +29,23 @@ const VoteSubmissionButton: React.FC<Props> = ({ setVotingToken }) => {
 			onFinish={onFinish}
 			onFinishFailed={onFinishFailed}>
 			<Form.Item
+				label='Email'
+				name='email'
+				rules={[
+					{
+						required: true,
+						message: 'Por favor introduza o seu email',
+					},
+				]}>
+				<Input />
+			</Form.Item>
+			<Form.Item
 				label='Vote Token'
 				name='token'
 				rules={[
 					{
 						required: true,
-						message: 'Please Input Your Voting Token',
+						message: 'Por favor introduza o seu token',
 					},
 				]}>
 				<Input />
