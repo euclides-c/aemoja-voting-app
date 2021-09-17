@@ -1,35 +1,20 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-// import { RcFile } from 'antd/lib/upload';
 
-const Avatar = () => {
-	const [Loading, setLoading] = useState<boolean>();
-	const [imageUrl, setimageURL] = useState<string>('');
+interface Props {
+	SignedURL: string;
+}
 
-	const handleChange = (info: any) => {
-		if (info.file.status === 'uploading') {
-			setLoading(true);
-			return;
-		}
-		if (info.file.status === 'done') {
-			// Get this url from response in real world.
-			getBase64(info.file.originFileObj, (imageUrl) => setimageURL(imageUrl));
-			setLoading(false);
-		}
-	};
+const Avatar: React.FC<Props> = ({ SignedURL }) => {
+	const [loading, setLoading] = useState<boolean>(false);
+	const [imageUrl, setImage] = useState<string>();
 
-	function getBase64(
-		img: Blob,
-		callback: {
-			(imageUrl: any): void;
-			(arg0: string | ArrayBuffer | null): any;
-		}
-	) {
+	const getBase64 = (img: any, callback: any) => {
 		const reader = new FileReader();
 		reader.addEventListener('load', () => callback(reader.result));
 		reader.readAsDataURL(img);
-	}
+	};
 
 	const beforeUpload = (file: any) => {
 		const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
@@ -43,22 +28,38 @@ const Avatar = () => {
 		return isJpgOrPng && isLt2M;
 	};
 
+	const handleChange = (info: any) => {
+		if (info.file.status === 'uploading') {
+			setLoading(true);
+			return;
+		}
+		if (info.file.status === 'done') {
+			// Get this url from response in real world.
+			getBase64(info.file.originFileObj, (imageUrl: any) => setImage(imageUrl));
+			setLoading(false);
+		}
+	};
+
+	const uploadButton = (
+		<div>
+			{loading ? <LoadingOutlined /> : <PlusOutlined />}
+			<div style={{ marginTop: 8 }}>Upload</div>
+		</div>
+	);
 	return (
 		<Upload
+			method='PUT'
 			name='avatar'
 			listType='picture-card'
 			className='avatar-uploader'
 			showUploadList={false}
-			action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
+			action={SignedURL}
 			beforeUpload={beforeUpload}
 			onChange={handleChange}>
 			{imageUrl ? (
 				<img src={imageUrl} alt='avatar' style={{ width: '100%' }} />
 			) : (
-				<div>
-					{Loading ? <LoadingOutlined /> : <PlusOutlined />}
-					<div style={{ marginTop: 8 }}>Upload</div>
-				</div>
+				uploadButton
 			)}
 		</Upload>
 	);

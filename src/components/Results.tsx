@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Result } from 'antd';
 import ResultCard from './ResultCard';
 
 interface results {
@@ -11,8 +12,9 @@ const Results = () => {
 	const [results, setResults] = useState<results[]>([]);
 
 	// make a database call and use setResults List to get real results
+	const date = new Date();
 
-	return (
+	return date.getMonth() >= 8 && date.getDay() >= 21 ? (
 		<>
 			{isLoading === false ? (
 				results.map((result: results, index: number) => {
@@ -32,6 +34,12 @@ const Results = () => {
 			)}
 			;
 		</>
+	) : (
+		<Result
+			status='403'
+			title='403'
+			subTitle='Esta Página Estará Disponivel a 21 de Setembro.'
+		/>
 	);
 };
 

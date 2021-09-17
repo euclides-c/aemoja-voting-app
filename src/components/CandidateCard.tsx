@@ -11,6 +11,7 @@ const CandidateCard: React.FC<Props> = ({ name }) => {
 		<div>
 			<Image
 				width={128}
+				// This should be the amazon s3 bucket url
 				src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
 			/>
 			<Descriptions bordered={true} column={1}>
