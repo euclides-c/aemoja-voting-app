@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Radio, RadioChangeEvent, Row, Col } from 'antd';
 import CandidateCard from './CandidateCard';
+import styled from 'styled-components';
+
+const StyledCards = styled.div`
+	display: inline-flex;
+	justify-content: center;
+	margin-left: 360px;
+	margin-top: 64px;
+`;
 
 interface Props {
 	chosenCandidate: string;
@@ -16,14 +24,13 @@ interface candidates {
 
 const candidateInit = [
 	{
-		name: 'Paulo Jose',
-		imageURL:
-			'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+		name: 'Edson Mavie',
+		imageURL: 'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/mavie.jpg',
 	},
 	{
-		name: 'Nelson',
+		name: 'João Papel',
 		imageURL:
-			'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+			'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/papel.jpeg',
 	},
 ];
 
@@ -37,34 +44,30 @@ const VotingCards: React.FC<Props> = ({
 	// make a database call and use setCandidate List to get real candidates
 
 	const onChange = (e: RadioChangeEvent) => {
-		console.log('radio checked', e.target.value);
-
 		setChosenCandidate(e.target.value);
 	};
 
 	return (
 		<>
-			<Row gutter={4}>
-				<Col span={8}>
-					{candidateList !== undefined ? (
-						candidateList.map((candidate: candidates, index: number) => {
-							return (
-								<Radio.Group onChange={onChange} value={chosenCandidate}>
-									<Radio value={candidate.name} key={index}>
-										<CandidateCard
-											key={index}
-											name={candidate.name}
-											imageURL={candidate.imageURL}
-										/>
-									</Radio>
-								</Radio.Group>
-							);
-						})
-					) : (
-						<div>No Candidates </div>
-					)}
-				</Col>
-			</Row>
+			<StyledCards>
+				{candidateList !== undefined ? (
+					candidateList.map((candidate: candidates, index: number) => {
+						return (
+							<Radio.Group onChange={onChange} value={chosenCandidate}>
+								<Radio value={candidate.name} key={index}>
+									<CandidateCard
+										key={index}
+										name={candidate.name}
+										imageURL={candidate.imageURL}
+									/>
+								</Radio>
+							</Radio.Group>
+						);
+					})
+				) : (
+					<div>No Candidates </div>
+				)}
+			</StyledCards>
 		</>
 	);
 };

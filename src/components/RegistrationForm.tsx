@@ -122,7 +122,9 @@ const RegistrationForm = () => {
 		console.log(date, dateString);
 	};
 
-	return (
+	const date = new Date();
+
+	return date.getMonth() === 8 && date.getDay() > 16 ? (
 		<>
 			<Form
 				{...layout}
@@ -224,6 +226,12 @@ const RegistrationForm = () => {
 				</Form.Item>
 			</Form>
 		</>
+	) : (
+		<Result
+			status='403'
+			title='403'
+			subTitle='O Periodo de Recenseamento Expirou.'
+		/>
 	);
 };
 
