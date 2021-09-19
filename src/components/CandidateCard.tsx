@@ -15,6 +15,7 @@ const CandidateCard: React.FC<Props> = ({ name, imageURL }) => {
 	return (
 		<Card title={name} bordered={false} onClick={handleOnClick}>
 			<Image
+				width={256}
 				// This should be the amazon s3 bucket url
 				src={imageURL}
 			/>

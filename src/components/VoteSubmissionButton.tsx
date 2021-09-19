@@ -17,9 +17,9 @@ const VoteSubmissionButton: React.FC<Props> = ({
 	setVotersEmail,
 }) => {
 	const onFinish = (values: Vote) => {
-		console.log('Success:', values);
 		setVotingToken(values.token.trim());
-		setVotersEmail(values.votersEmail.trim());
+		setVotersEmail(values.votersEmail.toString().trim().toLowerCase());
+		console.log(values.votersEmail.toLowerCase().trim());
 	};
 
 	const onFinishFailed = (errorInfo: any) => {
@@ -52,7 +52,7 @@ const VoteSubmissionButton: React.FC<Props> = ({
 				<Input />
 			</Form.Item>
 			<Form.Item
-				label='Vote Token'
+				label='Código de Voto'
 				name='token'
 				rules={[
 					{
@@ -69,7 +69,7 @@ const VoteSubmissionButton: React.FC<Props> = ({
 					span: 16,
 				}}>
 				<Button type='primary' htmlType='submit'>
-					Submit
+					Votar
 				</Button>
 			</Form.Item>
 		</Form>
