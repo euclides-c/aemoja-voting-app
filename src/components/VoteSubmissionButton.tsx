@@ -2,12 +2,24 @@ import { Form, Input, Button } from 'antd';
 
 interface Props {
 	setVotingToken: (t: string) => void;
+	setVotersEmail: (t: string) => void;
 }
 
-const VoteSubmissionButton: React.FC<Props> = ({ setVotingToken }) => {
-	const onFinish = (values: string) => {
+interface Vote {
+	// chosenCandidate: string;
+	votersEmail: string;
+	token: string;
+}
+
+//  Fetch Form Values
+const VoteSubmissionButton: React.FC<Props> = ({
+	setVotingToken,
+	setVotersEmail,
+}) => {
+	const onFinish = (values: Vote) => {
 		console.log('Success:', values);
-		setVotingToken(values);
+		setVotingToken(values.token.trim());
+		setVotersEmail(values.votersEmail.trim());
 	};
 
 	const onFinishFailed = (errorInfo: any) => {
@@ -30,7 +42,7 @@ const VoteSubmissionButton: React.FC<Props> = ({ setVotingToken }) => {
 			onFinishFailed={onFinishFailed}>
 			<Form.Item
 				label='Email'
-				name='email'
+				name='votersEmail'
 				rules={[
 					{
 						required: true,
