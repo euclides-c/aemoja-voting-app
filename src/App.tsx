@@ -7,6 +7,8 @@ import Results from './components/Results';
 import Vote from './pages/Vote';
 import RegistrationFailed from './components/RegistrationFailed';
 import RegistrationSuccessful from './components/RegistrationSuccessful';
+import VoteSuccessful from './components/VoteSuccessful';
+import VoteFailed from './components/VoteFailed';
 
 const Root = () => {
 	return (
@@ -23,6 +25,8 @@ const Root = () => {
 						{/* Refactor this */}
 						<Route exact path='/success' component={RegistrationSuccessful} />
 						<Route exact path='/error' component={RegistrationFailed} />
+						<Route exact path='/votesuccess' component={VoteSuccessful} />
+						<Route exact path='/voteerror' component={VoteFailed} />
 					</Switch>
 				</main>
 			</Router>

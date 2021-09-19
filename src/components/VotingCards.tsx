@@ -9,15 +9,22 @@ interface Props {
 
 interface candidates {
 	name: string;
+	imageURL: string;
 }
 
 // make a call to the backend to populate the cards
 
 const candidateInit = [
-	{ name: 'Delio' },
-	{ name: 'Chelsea' },
-	{ name: 'Sultane' },
-	{ name: 'Nelson' },
+	{
+		name: 'Paulo Jose',
+		imageURL:
+			'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+	},
+	{
+		name: 'Nelson',
+		imageURL:
+			'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+	},
 ];
 
 const VotingCards: React.FC<Props> = ({
@@ -44,7 +51,11 @@ const VotingCards: React.FC<Props> = ({
 							return (
 								<Radio.Group onChange={onChange} value={chosenCandidate}>
 									<Radio value={candidate.name} key={index}>
-										<CandidateCard key={index} name={candidate.name} />
+										<CandidateCard
+											key={index}
+											name={candidate.name}
+											imageURL={candidate.imageURL}
+										/>
 									</Radio>
 								</Radio.Group>
 							);
