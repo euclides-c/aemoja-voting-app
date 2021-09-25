@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import debug, { IDebugger } from 'debug';
 import votersService from '../services/voters.service';
 import shortid from 'shortid';
+import Emailnotification from '../common/services/emailnotification.service';
 
 const log: IDebugger = debug('app:voters-controller');
 class VotersController {
@@ -37,7 +38,8 @@ class VotersController {
 		// create the voter
 
 		const voterId = await votersService.create({ token, ...req.body });
-		votersService.sendEmail(req.body.email, token);
+		Emailnotification(req.body.email, ' ', token, 'registration');
+		// votersService.sendEmail(req.body.email, token);
 		res.status(201).send({ id: voterId });
 	}
 

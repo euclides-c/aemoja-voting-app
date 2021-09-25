@@ -42,31 +42,31 @@ class VotersService {
 		return VotersDao.getVoterByToken(token);
 	}
 
-	async sendEmail(receiver: string, token: string) {
-		// let testAccount = await nodemailer.createTestAccount();
+	// async sendEmail(receiver: string, token: string) {
+	// 	// let testAccount = await nodemailer.createTestAccount();
 
-		let transporter = nodemailer.createTransport({
-			host: 'smtp.sendgrid.net',
-			port: 465,
-			secure: true, // true for 465, false for other ports
-			auth: {
-				user: 'apikey',
-				pass: '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',
-			},
-		});
+	// 	let transporter = nodemailer.createTransport({
+	// 		host: 'smtp.sendgrid.net',
+	// 		port: 465,
+	// 		secure: true, // true for 465, false for other ports
+	// 		auth: {
+	// 			user: 'apikey',
+	// 			pass: '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',
+	// 		},
+	// 	});
 
-		// send mail with defined transport object
-		let info = await transporter.sendMail({
-			from: '"Plataforma Eleitoral da AEMOJA" <plataformaeleitoral@aemoja.org>', // sender address
-			to: [receiver, 'deliodownload@gmail.com'], // list of receivers
-			subject: 'Confirmação de Registo na Plataforma Eleitoral da  AEMOJA', // Subject line
-			text: `Acabou de registar-se na Plataforma Eleitoral da AEMOJA. Quando for votar, use o código seguinte para validar o seu voto: ${token}`,
-			html: `<b> Acabou de registar-se na Plataforma Eleitoral da AEMOJA. Quando for votar, use o código seguinte para validar o seu voto ${token}</b>`, // html body
-		});
+	// 	// send mail with defined transport object
+	// 	let info = await transporter.sendMail({
+	// 		from: '"Plataforma Eleitoral da AEMOJA" <plataformaeleitoral@aemoja.org>', // sender address
+	// 		to: [receiver, 'deliodownload@gmail.com'], // list of receivers
+	// 		subject: 'Confirmação de Registo na Plataforma Eleitoral da  AEMOJA', // Subject line
+	// 		text: `Acabou de registar-se na Plataforma Eleitoral da AEMOJA. Quando for votar, use o código seguinte para validar o seu voto: ${token}`,
+	// 		html: `<b> Acabou de registar-se na Plataforma Eleitoral da AEMOJA. Quando for votar, use o código seguinte para validar o seu voto ${token}</b>`, // html body
+	// 	});
 
-		console.log('Message sent: %s', info.messageId);
-		return info.messageId;
-	}
+	// 	console.log('Message sent: %s', info.messageId);
+	// 	return info.messageId;
+	// }
 
 	async getS3link() {
 		const region = 'ap-northeast-1';
