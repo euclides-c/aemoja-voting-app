@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import API from '../Api';
 
-import VotingCards from '../components/VotingCards';
+import VotingCards from '../components/Cards/VotingCards';
 import VoteSubmissionButton from '../components/VoteSubmissionButton';
 import { useHistory } from 'react-router';
 
