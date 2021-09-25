@@ -3,6 +3,7 @@ import debug, { IDebugger } from 'debug';
 import votersService from '../services/voters.service';
 import shortid from 'shortid';
 import Emailnotification from '../common/services/emailnotification.service';
+import getS3link from '../common/services/s3link.service';
 
 const log: IDebugger = debug('app:voters-controller');
 class VotersController {
@@ -54,7 +55,8 @@ class VotersController {
 	}
 
 	async getS3link(req: Request, res: Response) {
-		const uploadURL = await votersService.getS3link();
+		// const uploadURL = await votersService.getS3link();
+		const uploadURL = await getS3link();
 		res.status(200).send(uploadURL);
 	}
 }
