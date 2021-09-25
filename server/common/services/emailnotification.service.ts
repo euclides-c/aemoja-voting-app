@@ -50,6 +50,8 @@ const Emailnotification = async (
 		});
 		return info.messageId;
 	}
+
+	// Todo: check possible error and handling them (starting from incorrect email: but the middleware should catch incorrect emails)
 };
 
 export default Emailnotification;
