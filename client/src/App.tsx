@@ -5,10 +5,10 @@ import Header from './components/Header';
 import RegistrationForm from './components/RegistrationForm';
 import Results from './components/Results';
 import Vote from './pages/Vote';
-import RegistrationFailed from './components/RegistrationFailed';
-import RegistrationSuccessful from './components/RegistrationSuccessful';
-import VoteSuccessful from './components/VoteSuccessful';
-import VoteFailed from './components/VoteFailed';
+import RegistrationFailed from './components/Result/RegistrationFailed';
+import RegistrationSuccessful from './components/Result/RegistrationSuccessful';
+import VoteSuccessful from './components/Result/VoteSuccessful';
+import VoteFailed from './components/Result/VoteFailed';
 
 const Root = () => {
 	return (
