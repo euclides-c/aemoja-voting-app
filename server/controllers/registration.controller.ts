@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import debug, { IDebugger } from 'debug';
-import votersService from '../services/voters.service';
+import votersService from '../services/registration.service';
 import shortid from 'shortid';
 import Emailnotification from '../common/services/emailnotification.service';
 import getS3link from '../common/services/s3link.service';

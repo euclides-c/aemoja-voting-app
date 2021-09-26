@@ -2,8 +2,8 @@ import { Application } from 'express';
 import { body } from 'express-validator';
 
 import { CommonRoutesConfig } from '../common/common.routes.config';
-import votersController from '../controllers/voters.controller';
-import votersMiddleware from '../middleware/voters.middleware';
+import votersController from '../controllers/registration.controller';
+import votersMiddleware from '../middleware/registration.middleware';
 import BodyValidationMiddleware from '../common/middleware/body.validation.middleware';
 
 export class VotersRoutes extends CommonRoutesConfig {

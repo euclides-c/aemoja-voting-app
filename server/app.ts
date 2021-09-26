@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import debug, { IDebugger } from 'debug';
 
 import { CommonRoutesConfig } from './common/common.routes.config';
-import { VotersRoutes } from './routes/voters.routes.config';
+import { VotersRoutes } from './routes/registration.routes.config';
 import { VoteRoutes } from './routes/vote.routes.config';
 import { ResultRoutes } from './routes/result.routes.config';
 

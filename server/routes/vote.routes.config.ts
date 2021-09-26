@@ -3,9 +3,9 @@ import { body } from 'express-validator';
 
 import { CommonRoutesConfig } from '../common/common.routes.config';
 import voteController from '../controllers/vote.controller';
-import votersController from '../controllers/voters.controller';
+import votersController from '../controllers/registration.controller';
 
-import votersMiddleware from '../middleware/voters.middleware';
+import votersMiddleware from '../middleware/registration.middleware';
 import voteMiddleware from '../middleware/vote.middleware';
 
 import BodyValidationMiddleware from '../common/middleware/body.validation.middleware';

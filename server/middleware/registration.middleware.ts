@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import votersService from '../services/voters.service';
+import votersService from '../services/registration.service';
 import debug, { IDebugger } from 'debug';
 
 const log: IDebugger = debug('app:voters-controller');
