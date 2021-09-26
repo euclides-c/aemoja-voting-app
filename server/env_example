@@ -1,0 +1,6 @@
+BUCKET_NAME = "mys3bucket"
+AWS_ACCESS_KEY_ID= "myawsaccesskey"
+AWS_SECRET_ACCESS_KEY = "myawssecretkey"
+SMTP_HOST = "smtphost"
+SMTP_API_KEY = "smtpapikey"
+SMTP_USER = "smtpuser"

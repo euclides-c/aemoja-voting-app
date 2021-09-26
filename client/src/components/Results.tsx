@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Result } from 'antd';
-import ResultCard from './ResultCard';
+import ResultCard from './Cards/ResultCard';
 import API from '../Api';
 import styled from 'styled-components';
 
