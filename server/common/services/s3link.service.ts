@@ -3,10 +3,10 @@ import { promisify } from 'util';
 import crypto from 'crypto';
 
 const getS3link = async () => {
-	const region = 'ap-northeast-1';
-	const bucketName = '***REMOVED***';
-	const accessKeyId = '***REMOVED***';
-	const secretAccessKey = '***REMOVED***';
+	const region = '';
+	const bucketName = '';
+	const accessKeyId = '';
+	const secretAccessKey = '';
 
 	const s3 = new aws.S3({
 		region,

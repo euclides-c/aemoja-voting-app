@@ -20,12 +20,12 @@ const Emailnotification = async (
 	// Transport object definition
 
 	const transporter = nodemailer.createTransport({
-		host: '***REMOVED***',
+		host: '',
 		port: 465,
 		secure: true,
 		auth: {
-			user: 'apikey',
-			pass: '***REMOVED***',
+			user: '',
+			pass: '',
 		},
 	});
 
