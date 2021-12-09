@@ -1,7 +1,7 @@
 {
-  "name": "***REMOVED***-votes-backend",
+  "name": "aemoja-votes-backend",
   "version": "1.0.0",
-  "description": "Plataforma eleitoral da ***REMOVED***",
+  "description": "Plataforma eleitoral da aemoja",
   "main": "index.js",
   "author": "Euclides Chauque",
   "license": "MIT",

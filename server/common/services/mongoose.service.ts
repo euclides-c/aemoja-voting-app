@@ -23,7 +23,7 @@ class MongooseService {
 		log('Attempting MongoDB connection (will retry if needed)');
 		mongoose
 			.connect(
-				'mongodb+srv://***REMOVED***db:***REMOVED***@cluster0.6tv0y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+				'',
 				this.mongooseOptions
 			)
 			.then(() => {

@@ -32,7 +32,7 @@ const Emailnotification = async (
 	// send mail with defined transport object
 	if (action === 'registration') {
 		const info = await transporter.sendMail({
-			from: '"Plataforma Eleitoral da AEMOJA" <plataformaeleitoral@***REMOVED***.org>',
+			from: '"Plataforma Eleitoral da AEMOJA" <plataformaeleitoral@aemoja.org>',
 			to: receiver,
 			subject: REGISTRATION_SUBJECT,
 			text: REGISTRATION_MESSAGE,
@@ -42,7 +42,7 @@ const Emailnotification = async (
 	}
 	if (action === 'vote') {
 		const info = await transporter.sendMail({
-			from: '"Plataforma Eleitoral da AEMOJA" <plataformaeleitoral@***REMOVED***.org>',
+			from: '"Plataforma Eleitoral da AEMOJA" <plataformaeleitoral@aemoja.org>',
 			to: receiver,
 			subject: VOTE_CONFIRMATION_SUBJECT,
 			text: VOTE_CONFIRMATION_MESSAGE,

@@ -25,12 +25,12 @@ interface candidates {
 const candidateInit = [
 	{
 		name: 'Edson Mavie',
-		imageURL: 'https://***REMOVED***.s3.ap-northeast-1.amazonaws.com/mavie.jpg',
+		imageURL: 'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/mavie.jpg',
 	},
 	{
 		name: 'João Papel',
 		imageURL:
-			'https://***REMOVED***.s3.ap-northeast-1.amazonaws.com/papel.jpeg',
+			'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/papel.jpeg',
 	},
 ];
 

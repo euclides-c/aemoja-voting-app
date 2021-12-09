@@ -20,7 +20,7 @@ const CandidateDetails: React.FC<Props> = ({
 		<div>
 			<Image
 				width={200}
-				src='/Users/euclides-c/Documents/GitHub/***REMOVED***-votes/src/components/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+				src='/Users/euclides-c/Documents/GitHub/aemoja-votes/src/components/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
 			/>
 			<Descriptions title='User Info' bordered={true} column={1}>
 				<Descriptions.Item label='Name'>{name}</Descriptions.Item>

@@ -27,13 +27,13 @@ const Results = () => {
 			name: 'Edson Mavie',
 			votes: resMavie,
 			imageURL:
-				'https://***REMOVED***.s3.ap-northeast-1.amazonaws.com/mavie.jpg',
+				'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/mavie.jpg',
 		},
 		{
 			name: 'João Papel',
 			votes: resPapel,
 			imageURL:
-				'https://***REMOVED***.s3.ap-northeast-1.amazonaws.com/papel.jpeg',
+				'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/papel.jpeg',
 		},
 	];
 
