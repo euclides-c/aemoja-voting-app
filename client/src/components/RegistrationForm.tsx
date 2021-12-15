@@ -1,10 +1,11 @@
 import { Form, Input, Button, Select, Switch, DatePicker, Space } from 'antd';
 import Avatar from './UploadAvatar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import API from '../Api';
 import { Result } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { useHistory } from 'react-router';
+import { SwitchChangeEventHandler } from 'antd/lib/switch';
 // import styled from 'styled-components';
 
 // const FormStyled = styled(Form)`
@@ -35,11 +36,7 @@ const validateMessages = {
 
 // to do
 //  Define an interface type for the data to be received, any remove any annotation
-// Define required states
 // Make handlers work and print to the console
-
-// Issue
-// Chegada not bein populated
 
 interface Voter {
 	name: string;
@@ -57,8 +54,7 @@ const RegistrationForm = () => {
 	const [isCandidate, setIsCandidate] = useState<boolean>(false);
 	const [isLink, setLink] = useState<string>(' ');
 	const [chegada, setChegada] = useState<string>(' ');
-	// const [formSubmissionSuccessful, setFormSubmissionSuccessful] =
-	useState<boolean>();
+	// const [formSubmissionSuccessful, setFormSubmissionSuccessful] = useState<boolean>();
 
 	const [form] = Form.useForm();
 
@@ -88,43 +84,36 @@ const RegistrationForm = () => {
 			});
 	};
 
-	// const onChange = (value: any) => {
-	// 	console.log(`selected ${value}`);
-	// };
 
-	// function onChange(checked: any) {
-	// 	console.log(`switch to ${checked}`);
-	// }
-
-	const handleCanditate = (checked: boolean) => {
-		if (checked === true) {
-			setIsCandidate(true);
-
+	const handleCanditate: SwitchChangeEventHandler | undefined = () => 
+			setIsCandidate(!isCandidate)
+	
+	useEffect(() => {
+		if (isCandidate){
 			API.get('/voters/slink')
-				.then((response) => {
-					if (response.status === 200) {
-						console.log(response);
-						setLink(response.data.split('?')[0]);
-					}
-				})
-				.catch((error) => {
-					setIsCandidate(false);
-					setLink(' ');
+			.then((response) => {
+			if (response.status === 200) {
+					console.log(response);
+					setLink(response.data.split('?')[0]);
+			}
+			})
+			.catch((error) => {
+				console.log("There was an error fetching the S3Bucket link")
 				});
-		} else {
-			setIsCandidate(true);
-			setLink(' ');
 		}
-	};
+		else {
+			setLink(' ');
+			}
+	}, [isCandidate])
+		
 
-	const onChangeDate = (date: moment.Moment | null, dateString: string) => {
+	const onChangeDate = (date: moment.Moment | null, dateString: string) => 
 		setChegada(dateString);
-		console.log(date, dateString);
-	};
+	
 
 	const date = new Date();
 
-	return date.getMonth() === 8 && date.getDay() > 16 ? (
+	return date.getMonth() === 11 && date.getDate() > 14 ? (
 		<>
 			<Form
 				{...layout}
@@ -195,7 +184,7 @@ const RegistrationForm = () => {
 						<DatePicker onChange={onChangeDate} picker='year' />
 					</Space>
 				</Form.Item>
-				{/* <Form.Item
+				<Form.Item
 					name='candidato'
 					label='É Candidato?'
 					valuePropName='checked'
@@ -206,9 +195,11 @@ const RegistrationForm = () => {
 						},
 					]}>
 					<Switch onChange={handleCanditate} />
-				</Form.Item> */}
+				</Form.Item> 
 
-				{/* {isCandidate === true ? (
+				{/* the below should be rerender everytime the isCandidate is toggled */}
+
+				{isCandidate ? (
 					<>
 						<Form.Item name='foto' label='Carregar Foto'>
 							<Avatar SignedURL={isLink} />
@@ -217,7 +208,7 @@ const RegistrationForm = () => {
 							<Input.TextArea />
 						</Form.Item>
 					</>
-				) : null} */}
+				) : null}
 
 				<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
 					<Button type='primary' htmlType='submit'>
