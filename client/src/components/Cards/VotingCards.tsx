@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Radio, RadioChangeEvent, Row, Col } from 'antd';
+import { Radio, RadioChangeEvent} from 'antd';
 import CandidateCard from './CandidateCard';
 import styled from 'styled-components';
 
