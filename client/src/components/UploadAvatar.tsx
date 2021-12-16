@@ -33,6 +33,7 @@ const Avatar: React.FC<Props> = ({ SignedURL }) => {
 			setLoading(true);
 			return;
 		}
+		// check if error
 		if (info.file.status === 'done') {
 			// Get this url from response in real world.
 			getBase64(info.file.originFileObj, (imageUrl: any) => setImage(imageUrl));
@@ -51,7 +52,6 @@ const Avatar: React.FC<Props> = ({ SignedURL }) => {
 			method='PUT'
 			name='avatar'
 			listType='picture-card'
-			className='avatar-uploader'
 			showUploadList={false}
 			action={SignedURL}
 			beforeUpload={beforeUpload}
