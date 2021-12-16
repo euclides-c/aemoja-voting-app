@@ -23,7 +23,7 @@ class MongooseService {
 		log('Attempting MongoDB connection (will retry if needed)');
 		mongoose
 			.connect(
-				'',
+				`process.env.MONGO_URI`,
 				this.mongooseOptions
 			)
 			.then(() => {

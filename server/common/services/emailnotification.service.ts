@@ -1,4 +1,6 @@
 import nodemailer from 'nodemailer';
+import SMTPTransport from 'nodemailer/lib/smtp-transport';
+
 
 const Emailnotification = async (
 	receiver: string,
@@ -20,14 +22,14 @@ const Emailnotification = async (
 	// Transport object definition
 
 	const transporter = nodemailer.createTransport({
-		host: '',
-		port: 465,
+		host: process.env.SMTP_HOST,
+		port: process.env.SMTP_PORT,
 		secure: true,
 		auth: {
-			user: '',
-			pass: '',
+			user: process.env.SMTP_USER,
+			pass: process.env.SMTP_API_KEY,
 		},
-	});
+	} as SMTPTransport.Options);
 
 	// send mail with defined transport object
 	if (action === 'registration') {
