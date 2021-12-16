@@ -1,16 +1,15 @@
-import { Form, Input, Button, Select, Switch, DatePicker, Space } from 'antd';
-import Avatar from './UploadAvatar';
 import { useEffect, useState } from 'react';
-import API from '../Api';
-import { Result } from 'antd';
-import { useForm } from 'antd/lib/form/Form';
 import { useHistory } from 'react-router';
+
+import { Form, Input, Button, Select, Switch, DatePicker, Space, Result } from 'antd';
 import { SwitchChangeEventHandler } from 'antd/lib/switch';
+
+import Avatar from './UploadAvatar';
+import API from '../Api';
+
+
 // import styled from 'styled-components';
 
-// const FormStyled = styled(Form)`
-// 	margin-top: 16px;
-// `;
 
 const layout = {
 	labelCol: {
@@ -34,10 +33,6 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-// to do
-//  Define an interface type for the data to be received, any remove any annotation
-// Make handlers work and print to the console
-
 interface Voter {
 	name: string;
 	email: string;
@@ -49,12 +44,12 @@ interface Voter {
 	bio: string;
 }
 const RegistrationForm = () => {
+
 	const history = useHistory();
 	const { Option } = Select;
 	const [isCandidate, setIsCandidate] = useState<boolean>(false);
 	const [isLink, setLink] = useState<string>(' ');
 	const [chegada, setChegada] = useState<string>(' ');
-	// const [formSubmissionSuccessful, setFormSubmissionSuccessful] = useState<boolean>();
 
 	const [form] = Form.useForm();
 
@@ -75,12 +70,20 @@ const RegistrationForm = () => {
 			.then((response) => {
 				if (response.status === 201) {
 					form.resetFields();
-					history.push('/success');
+					history.push({pathname:'/notification', state: {
+						status: "success",
+						title: "Successo",
+						subTitle: "Registou-se com sucesso"
+					 }});
 				}
 			})
 			.catch((error) => {
 				form.resetFields();
-				history.push('/error');
+				history.push({pathname:'/notification', state: {
+					status: "error",
+					title: "Ocorreu um erro",
+					subTitle: "Ocorreu um erro durante o registo"
+				 }});
 			});
 	};
 
@@ -201,10 +204,19 @@ const RegistrationForm = () => {
 
 				{isCandidate ? (
 					<>
-						<Form.Item name='foto' label='Carregar Foto'>
+						<Form.Item name='foto' label='Carregar Foto' 					rules={[
+						{
+							required: true
+						},
+					]}>
 							<Avatar SignedURL={isLink} />
 						</Form.Item>
-						<Form.Item name='bio' label='Bio'>
+						<Form.Item name='bio' label='Bio' 					rules={[
+						{
+							type: 'string',
+							required: true,
+						},
+					]}>
 							<Input.TextArea />
 						</Form.Item>
 					</>

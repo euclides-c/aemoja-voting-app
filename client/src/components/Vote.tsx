@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import API from '../Api';
 
-import VotingCards from '../components/Cards/VotingCards';
-import VoteSubmissionButton from '../components/VoteSubmissionButton';
+import VotingCards from './Cards/VotingCards';
+import VoteSubmissionButton from './VoteSubmissionButton';
 import { useHistory } from 'react-router';
 
 const Vote = () => {
@@ -10,7 +10,6 @@ const Vote = () => {
 	const [chosenCandidate, setChosenCandidate] = useState<string>('');
 	const [votingToken, setVotingToken] = useState<string>('');
 	const [votersEmails, setVotersEmail] = useState<string>('');
-	// The states will be updated by the components on the return. pass the setters as props
 
 	console.log('Candidate chosen:', chosenCandidate);
 	console.log('Vote Token', votingToken);
@@ -29,14 +28,22 @@ const Vote = () => {
 			API.post('/vote', payload)
 				.then((response) => {
 					if (response.status === 200) {
-						history.push('/votesuccess');
+						history.push({pathname:'/notification', state: {
+							status: "success",
+							title: "Successo",
+							subTitle: "O seu voto foi recebido"
+						 }})
 					}
 				})
 				.catch((error) => {
-					history.push('/voteerror');
+					history.push({pathname:'/notification', state: {
+						status: "error",
+						title: "Ocorreu um erro",
+						subTitle: "Ocorreu um erro durante o voto"
+					 }})
 				});
 		}
-	}, [chosenCandidate, votersEmails, votingToken]);
+	}, [chosenCandidate, history, votersEmails, votingToken]);
 
 	return (
 		<div>
