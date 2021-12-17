@@ -45,9 +45,6 @@ const VotingCards: React.FC<Props> = ({
 			.catch((error) => {
 				console.log('Something went wrong when calling candidates');
 			});
-		return () => {
-	
-		}
 	}, [])
 
 	return (
