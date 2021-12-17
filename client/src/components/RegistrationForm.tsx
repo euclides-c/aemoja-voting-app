@@ -204,11 +204,7 @@ const RegistrationForm = () => {
 
 				{isCandidate ? (
 					<>
-						<Form.Item name='foto' label='Carregar Foto' 					rules={[
-						{
-							required: true
-						},
-					]}>
+						<Form.Item  name='foto' label='Carregar Foto'>
 							<Avatar SignedURL={isLink} />
 						</Form.Item>
 						<Form.Item name='bio' label='Bio' 					rules={[
