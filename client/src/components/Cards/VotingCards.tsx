@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Radio, RadioChangeEvent} from 'antd';
 import CandidateCard from './CandidateCard';
 import styled from 'styled-components';
+import API from '../../Api';
 
 const StyledCards = styled.div`
 	display: inline-flex;
@@ -17,48 +18,50 @@ interface Props {
 
 interface candidates {
 	name: string;
-	imageURL: string;
+	foto: string;
 }
 
-// make a call to the backend to populate the cards
-
-const candidateInit = [
-	{
-		name: 'Edson Mavie',
-		imageURL: 'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/mavie.jpg',
-	},
-	{
-		name: 'João Papel',
-		imageURL:
-			'https://aemoja-bucket.s3.ap-northeast-1.amazonaws.com/papel.jpeg',
-	},
-];
 
 const VotingCards: React.FC<Props> = ({
 	chosenCandidate,
 	setChosenCandidate,
 }) => {
 	const [candidateList, setCandidateList] =
-		useState<candidates[]>(candidateInit);
-
-	// make a database call and use setCandidate List to get real candidates
+		useState<candidates[]>([]);
 
 	const onChange = (e: RadioChangeEvent) => {
 		setChosenCandidate(e.target.value);
 	};
+	useEffect(() => {
+		// make a get candidates call for the backend 
+		// use the result to set candidateList
+
+		API.get('/voters/candidates')
+			.then((response) => {
+				if (response.status === 200) {
+					setCandidateList(response.data);
+				}
+			})
+			.catch((error) => {
+				console.log('Something went wrong when calling candidates');
+			});
+		return () => {
+	
+		}
+	}, [])
 
 	return (
 		<>
-			<StyledCards>
+			<StyledCards >
 				{candidateList !== undefined ? (
 					candidateList.map((candidate: candidates, index: number) => {
 						return (
-							<Radio.Group onChange={onChange} value={chosenCandidate}>
+							<Radio.Group onChange={onChange} value={chosenCandidate} key={index}>
 								<Radio value={candidate.name} key={index}>
 									<CandidateCard
 										key={index}
 										name={candidate.name}
-										imageURL={candidate.imageURL}
+										foto={candidate.foto}
 									/>
 								</Radio>
 							</Radio.Group>

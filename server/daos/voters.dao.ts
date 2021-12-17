@@ -19,7 +19,7 @@ class VotersDao {
 			universidade: String,
 			bolsa: String,
 			chegada: Number,
-			candidate: Boolean,
+			candidato: Boolean,
 			foto: String,
 			bio: String,
 			token: String,
@@ -52,7 +52,7 @@ class VotersDao {
 
 	async getCandidates() {
 		log('reached the database layer');
-		return this.Voter.find({ candidate: true }).exec();
+		return this.Voter.find({ candidato: true }).exec();
 	}
 
 	async getVoter(limit = 100, page = 0) {

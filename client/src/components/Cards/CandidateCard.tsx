@@ -3,7 +3,7 @@ import { Image, Card } from 'antd';
 
 interface Props {
 	name: string;
-	imageURL: string;
+	foto: string;
 }
 
 // The Drower Component to show candidate details should appear hear
@@ -11,13 +11,13 @@ const handleOnClick = (e: any) => {
 	e.preventDefault();
 };
 
-const CandidateCard: React.FC<Props> = ({ name, imageURL }) => {
+const CandidateCard: React.FC<Props> = ({ name, foto }) => {
 	return (
 		<Card title={name} bordered={false} onClick={handleOnClick}>
 			<Image
 				width={256}
 				// This should be the amazon s3 bucket url
-				src={imageURL}
+				src={foto}
 			/>
 		</Card>
 	);
