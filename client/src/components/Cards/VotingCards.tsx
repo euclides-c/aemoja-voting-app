@@ -38,6 +38,8 @@ const VotingCards: React.FC<Props> = ({
       .then((response) => {
         if (response.status === 200) {
           setCandidateList(response.data);
+          console.log("candidate data", response.data);
+          console.log("candidate data", response.data[0].foto);
         }
       })
       .catch((error) => {

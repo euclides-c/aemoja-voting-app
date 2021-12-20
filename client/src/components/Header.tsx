@@ -31,16 +31,7 @@ const Header = () => {
         width: "max-content",
         justifyContent: "flex-end",
       }}
-    >
-      {/* <Statistic
-				title='Total de Recenseados'
-				value={56}
-				style={{
-					marginRight: 32,
-				}}
-			/> */}
-      {/* <Statistic title='Total de Votos' value={568.08} /> */}
-    </div>
+    ></div>
   );
 
   const Content = ({
@@ -61,7 +52,7 @@ const Header = () => {
       <PageHeader
         className="site-page-header-responsive"
         onBack={() => window.history.back()}
-        title="Plataforma de Eleiçōes da AEMOJA"
+        title="Plataforma Eleitoral da AEMOJA"
         extra={[
           <Button
             key="Registration"
