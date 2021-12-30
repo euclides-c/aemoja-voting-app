@@ -23,19 +23,18 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters?voterID=\"9zRPRdABK\"",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters/?voterID=BWTdpOo0PR",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
-						"voters"
+						"voters",
+						""
 					],
 					"query": [
 						{
 							"key": "voterID",
-							"value": "\"9zRPRdABK\""
+							"value": "BWTdpOo0PR"
 						}
 					]
 				}
@@ -60,12 +59,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters/slink",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters/slink",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
 						"voters",
 						"slink"
@@ -114,11 +111,8 @@
 		},
 		{
 			"name": "createVoter",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -130,20 +124,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters?voterID=\"9zRPRdABK\"",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
 						"voters"
-					],
-					"query": [
-						{
-							"key": "voterID",
-							"value": "\"9zRPRdABK\""
-						}
 					]
 				}
 			},
@@ -195,12 +181,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
 						"voters"
 					]
@@ -226,14 +210,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters/candidates",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
-						"voters"
+						"voters",
+						"candidates"
 					]
 				}
 			},
@@ -257,12 +240,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters?email=euclideschauque@gmail.com",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters?email=euclideschauque@gmail.com",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
 						"voters"
 					],
@@ -291,19 +272,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters?email=euclideschauque@gmail.com",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters?email=\"euclideschauque@gmail.com\"",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
 						"voters"
 					],
 					"query": [
 						{
 							"key": "email",
-							"value": "euclideschauque@gmail.com"
+							"value": "\"euclideschauque@gmail.com\""
 						}
 					]
 				}
@@ -325,12 +304,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/voters?voterID=\"9zRPRdABK\"",
-					"protocol": "http",
+					"raw": "{{baseurl}}/voters?voterID=\"9zRPRdABK\"",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "5000",
 					"path": [
 						"voters"
 					],
@@ -343,6 +320,32 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:5000"
 		}
 	]
 }
