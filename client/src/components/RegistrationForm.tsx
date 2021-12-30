@@ -74,7 +74,6 @@ const RegistrationForm = () => {
       bio: values.bio,
     };
 
-    console.log(payload);
     API.post("/voters", payload)
       .then((response) => {
         if (response.status === 201) {
@@ -138,7 +137,6 @@ const RegistrationForm = () => {
       API.get("/voters/slink")
         .then((response) => {
           if (response.status === 200) {
-            console.log(response);
             setLink(response.data.split("?")[0]);
           }
         })

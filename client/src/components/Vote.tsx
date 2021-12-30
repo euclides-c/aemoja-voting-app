@@ -11,9 +11,6 @@ const Vote = () => {
   const [votingToken, setVotingToken] = useState<string>("");
   const [votersEmails, setVotersEmail] = useState<string>("");
 
-  console.log("Candidate chosen:", chosenCandidate);
-  console.log("Vote Token", votingToken);
-
   useEffect(() => {
     const payload = {
       candidateName: chosenCandidate,
