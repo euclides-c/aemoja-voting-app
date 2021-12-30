@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "f4e143fb-485e-4e43-8ce2-a3073a2eae4d",
+		"name": "aemoja",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getvoterByID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters?voterID=\"9zRPRdABK\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters"
+					],
+					"query": [
+						{
+							"key": "voterID",
+							"value": "\"9zRPRdABK\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getS3url",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters/slink",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters",
+						"slink"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getResults",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"candidateName\": \"João Papel\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/result/?candidateName=João Papel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"result",
+						""
+					],
+					"query": [
+						{
+							"key": "candidateName",
+							"value": "João Papel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createVoter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters?voterID=\"9zRPRdABK\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters"
+					],
+					"query": [
+						{
+							"key": "voterID",
+							"value": "\"9zRPRdABK\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n\t\"candidateName\": \"Paulo Jose\",\n\t\"votersEmail\": \"deliodownload@gmail.com\",\n\t\"token\": \"ngWKarH9m\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVoters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCandidates",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVoterByEmail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters?email=euclideschauque@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "euclideschauque@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteVoterByEmail",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters?email=euclideschauque@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "euclideschauque@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteVoterByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"name\": \"Euclides\",\n\t\"email\": \"euclideschauque@gmail.com\",\n\t\"universidade\": \"Nara Institute Of Science and Technology\",\n\t\"bolsa\": \"Mext\",\n\t\"chegada\": \"2018\",\n\t\"candidate\": \"false\",\n\t\"bio\": \"string\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/voters?voterID=\"9zRPRdABK\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"voters"
+					],
+					"query": [
+						{
+							"key": "voterID",
+							"value": "\"9zRPRdABK\""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
