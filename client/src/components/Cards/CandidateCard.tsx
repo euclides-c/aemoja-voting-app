@@ -13,13 +13,11 @@ const handleOnClick = (e: any) => {
 
 const CandidateCard: React.FC<Props> = ({ name, foto }) => {
   return (
-    <Card title={name} bordered={false} onClick={handleOnClick}>
-      <Image
-        width={256}
-        // This should be the amazon s3 bucket url
-        src={foto}
-      />
-    </Card>
+    <>
+      <Card title={name} bordered={false} onClick={handleOnClick}>
+        <Image width={256} src={foto} />
+      </Card>
+    </>
   );
 };
 

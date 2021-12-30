@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import axios from "axios";
+import { UploadChangeParam } from "antd/lib/upload";
+import { SwitchChangeEventHandler } from "antd/lib/switch";
+import { UploadOutlined } from "@ant-design/icons";
 
 import {
   Form,
@@ -10,10 +14,9 @@ import {
   DatePicker,
   Space,
   Result,
+  Upload,
 } from "antd";
-import { SwitchChangeEventHandler } from "antd/lib/switch";
 
-import Avatar from "./UploadAvatar";
 import API from "../Api";
 
 // import styled from 'styled-components';
@@ -97,6 +100,34 @@ const RegistrationForm = () => {
           },
         });
       });
+  };
+
+  const normFile = (e: UploadChangeParam) => {
+    // make an axios call here after getting rid of all webcontent
+    // check if the file as finished loading first
+    // assign the value
+    //  post and check the result
+    // if successful proceed and post data to the database
+    // if not reject
+    const file = e.file.originFileObj;
+    axios({
+      method: "PUT",
+      url: isLink,
+      data: file, // NOTE - this is the file not the FormData Object
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+      .then((res) => {
+        console.log("sent image to S3");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    console.log("the array conditional was false");
+
+    return e && e.file.originFileObj;
   };
 
   const handleCanditate: SwitchChangeEventHandler | undefined = () =>
@@ -184,7 +215,6 @@ const RegistrationForm = () => {
             style={{ width: 200 }}
             placeholder="Selecione O Provedor da Bolsa"
             optionFilterProp="children"
-            // onChange={onChange}
             filterOption={(input, option: any) =>
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
@@ -219,20 +249,15 @@ const RegistrationForm = () => {
 
         {isCandidate ? (
           <>
-            <Form.Item name="foto" label="Carregar Foto">
-              <Avatar SignedURL={isLink} />
-            </Form.Item>
             <Form.Item
-              name="bio"
-              label="Bio"
-              rules={[
-                {
-                  type: "string",
-                  required: true,
-                },
-              ]}
+              name="upload"
+              label="Upload"
+              valuePropName="file"
+              getValueFromEvent={normFile}
             >
-              <Input.TextArea />
+              <Upload>
+                <Button icon={<UploadOutlined />}>Click to upload</Button>
+              </Upload>
             </Form.Item>
           </>
         ) : null}
