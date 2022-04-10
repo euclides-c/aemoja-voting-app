@@ -1,3 +1,21 @@
-FROM node
+FROM node:15.11.0-alpine3.10 
 
-# adding dockerfile specs
+# set working directory
+WORKDIR /
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /node_modules/.bin:$PATH
+ENV NODE_ENV production
+
+# install app dependencies
+COPY ./package.json ./
+COPY ./yarn.lock ./
+RUN yarn install --silent --production
+RUN yarn add react-scripts@4.0.0 -g --silent
+
+# add app
+COPY . .
+
+EXPOSE 3000
+# start app
+CMD ["yarn", "start"]

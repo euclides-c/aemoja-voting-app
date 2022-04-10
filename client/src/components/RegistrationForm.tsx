@@ -153,7 +153,8 @@ const RegistrationForm = () => {
 
   const date = new Date();
 
-  return date.getMonth() === 11 && date.getDate() > 14 ? (
+  // this dates should go to a configuration file
+  return date.getMonth() === 3 && date.getDate() > 5 ? (
     <>
       <Form
         {...layout}
