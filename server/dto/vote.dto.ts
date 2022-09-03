@@ -1,5 +1,5 @@
 export interface VoteDto {
-	candidateName: string;
-	votersEmail: string;
-	token: string;
+  candidateName: string;
+  votersEmail: string;
+  token: string;
 }
