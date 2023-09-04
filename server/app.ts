@@ -15,10 +15,11 @@ import { ResultRoutes } from "./routes/result.routes.config";
 // However on the local machine these lines are necessary
 //  use these lines if not on docker
 
-// const dotenvResult = dotenv.config();
-// if (dotenvResult.error) {
-//   throw dotenvResult.error;
-// }
+const dotenvResult = dotenv.config();
+
+if (dotenvResult.error) {
+  throw dotenvResult.error;
+}
 const app: Application = express();
 const server: Server = createServer(app);
 const port = 5000;

@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import debug, { IDebugger } from "debug";
+import { ServerApiVersion } from "mongodb";
 
 const log: IDebugger = debug("app:mongoose-service");
 
@@ -9,6 +10,7 @@ class MongooseService {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000,
+    serverApi: ServerApiVersion.v1,
   };
 
   constructor() {
@@ -21,12 +23,9 @@ class MongooseService {
 
   connectWithRetry = () => {
     log("Attempting MongoDB connection (will retry if needed)");
+    console.log(process.env.MONGO_URI);
     mongoose
-      // .connect(
-      // 	`${process.env.MONGO_URI}`,
-      // 	this.mongooseOptions
-      // )
-      .connect("localhost:27017", this.mongooseOptions)
+      .connect(`${process.env.MONGO_URI}`, this.mongooseOptions)
       .then(() => {
         log("MongoDB is connected");
       })
