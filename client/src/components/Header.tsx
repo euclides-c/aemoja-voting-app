@@ -1,6 +1,7 @@
 import { PageHeader, Button, Descriptions } from "antd";
 import { ReactChild } from "react";
 import { useHistory } from "react-router-dom";
+import AppConfig from "../config.json";
 
 const Header = () => {
   const history = useHistory();
@@ -8,18 +9,18 @@ const Header = () => {
   const renderContent = (column = 2) => (
     <Descriptions size="small" column={column}>
       <Descriptions.Item label="Recenseamento Eleitoral">
-        7 e 8 de Setembro
+        {AppConfig.recenseamento}
       </Descriptions.Item>
       <Descriptions.Item label="Data Da Eleição">
-        20 de Setembro
+        {AppConfig.eleicao}
       </Descriptions.Item>
 
       <Descriptions.Item label="Divulgação dos Resultados">
-        21 de Setembro
+        {AppConfig.resultado}
       </Descriptions.Item>
 
       <Descriptions.Item label="Tomada de Posse">
-        23 de Setembro
+        {AppConfig.posse}
       </Descriptions.Item>
     </Descriptions>
   );
